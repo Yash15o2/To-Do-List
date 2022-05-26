@@ -9,6 +9,7 @@ export class TaskComponent implements OnInit {
   title: string = 'Task List';
   previousText: any = '';
   updatedText: string = '';
+  charLimit: number = 40;
   increment: number = 1;
 
   constructor() {}
