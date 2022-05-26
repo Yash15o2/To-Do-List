@@ -1,3 +1,7 @@
+# Working
+
+For editing the text, click on text. An edit window will open where you can edit text.
+
 # ToDoList
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
