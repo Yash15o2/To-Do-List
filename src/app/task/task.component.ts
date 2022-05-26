@@ -9,6 +9,8 @@ export class TaskComponent implements OnInit {
   title: string = 'Task List';
   previousText: any = '';
   updatedText: string = '';
+  increment: number = 1;
+
   constructor() {}
   ngOnInit(): void {}
 
@@ -36,7 +38,8 @@ export class TaskComponent implements OnInit {
 
   addTask(task: string) {
     if (task == '') {
-      task = 'My task';
+      task = 'My task ' + this.increment;
+      this.increment++;
     }
     this.list.push({ id: this.list.length, name: task });
     this.emptyStateCheck();

@@ -82,6 +82,7 @@ ul {
   /* border: 1px solid red; */
   overflow: auto;
   padding-inline-start: 0;
+  /* padding: 0; */
 }
 
 .empty-state {
@@ -107,8 +108,9 @@ li div {
   list-style: none;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   /* border: 1px solid red; */
-  width: 35vw;
+  width: inherit;
   background-color: #fff;
   border-radius: 12px;
   padding: 0 10px 0 10px;
@@ -136,6 +138,7 @@ input[id="cb"]:checked ~ p.strikethrough {
 
 .task-wrt {
   margin-left: 20px;
+  cursor: pointer;
 }
 
 #add-btn {
@@ -171,4 +174,22 @@ ul::-webkit-scrollbar-thumb {
   background: #4010d5;
   border-radius: 10px;
   box-shadow: 2px 2px 12px #400fd449;
+}
+
+@media screen and (max-width: 900px) {
+  #heading {
+    width: 70vw;
+  }
+  .empty-state img {
+    height: 40vw;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #heading {
+    width: 90vw;
+  }
+  .empty-state img {
+    height: 70vw;
+  }
 }
