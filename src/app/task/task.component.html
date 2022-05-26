@@ -1,0 +1,78 @@
+<p id="heading">{{ title }}</p>
+
+<!-- Input Window -->
+
+<div id="input-container" *ngIf="displayInput">
+  <input
+    #task
+    type="text"
+    placeholder="Write your task."
+    maxlength="40"
+    spellcheck="false"
+  />
+  <p class="char-limit">Max limit : 40 characters</p>
+  <div id="btn-container">
+    <button (click)="hideWindow()" class="input-btn" id="cancel-btn">
+      Cancel
+    </button>
+
+    <button (click)="addTask(task.value)" class="input-btn" id="addTask-btn">
+      Add Task
+    </button>
+  </div>
+</div>
+
+<!-- Edit Window -->
+
+<div id="input-container" *ngIf="displayEdit">
+  <input
+    #rename
+    type="text"
+    value="{{ previousText }}"
+    maxlength="40"
+    spellcheck="false"
+  />
+  <p class="char-limit">Max limit : 40 characters</p>
+
+  <div id="btn-container">
+    <button (click)="hideWindow()" class="input-btn" id="cancel-btn">
+      Cancel
+    </button>
+
+    <button (click)="editTask(rename.value)" class="input-btn" id="edit-btn">
+      Edit
+    </button>
+  </div>
+</div>
+
+<!-- Task List -->
+
+<ul>
+  <!-- Empty State Image -->
+  <div class="empty-state" *ngIf="displayImage">
+    <img src="../../assets/empty-state.png" alt="Empty State" />
+    <p class="empty-text">No task added yet.</p>
+  </div>
+
+  <li *ngFor="let task of list">
+    <div>
+      <input name="cb" type="checkbox" id="cb" />
+      <p class="task-wrt strikethrough" (click)="showEditWindow(task.name)">
+        {{ task.name }}
+      </p>
+    </div>
+    <abbr title="Delete"
+      ><img
+        id="delete-img"
+        src="../../assets/delete.svg"
+        alt="remove"
+        (click)="removeTask(task.id)"
+    /></abbr>
+  </li>
+</ul>
+
+<!-- Add Task button -->
+
+<button (click)="showInputWindow()" id="add-btn">
+  <img src="../../assets/plus.svg" alt="Add" />
+</button>
